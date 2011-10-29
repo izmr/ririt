@@ -1,0 +1,89 @@
+module ApplicationHelper
+  def count_set(count, now_count)
+    if count.to_i == now_count.to_i
+      return "#{count.to_s} tweet以上"
+    else
+      return link_to("#{count.to_s} tweet以上", url_for(:controller => 'item_stream', :count => count, :page => @page.to_i, :search_word => @search_word))
+    end
+  end
+
+  def random_banner
+    banners = []
+    banners.push  <<EOS
+    <!-- TG-Affiliate Banner Space -->
+    <A href="http://ad2.trafficgate.net/mt/s/13/4869/218078_269257/"><IMG src="http://srv2.trafficgate.net/mt/b/13/4869/218078_269257/" border="0"></A>
+    <!-- /TG-Affiliate Banner Space -->    
+EOS
+    banners.push '<a href="http://hb.afl.rakuten.co.jp/hsc/0d386576.48bc3b2a.0d386561.16afe521/" target="_blank"><img src="http://hbb.afl.rakuten.co.jp/hsb/0d386576.48bc3b2a.0d386561.16afe521/166766/" border="0"></a>'
+
+    banners.push <<EOS
+    <!-- TG-Affiliate Banner Space -->
+    <A href="http://ad2.trafficgate.net/t/r/8/4309/218078_269257/" target="_blank"><IMG src="http://srv2.trafficgate.net/t/b/8/4309/218078_269257/" border="0"></A>
+    <!-- /TG-Affiliate Banner Space -->
+EOS
+
+    banners.push <<EOS
+    <!-- TG-Affiliate Banner Space -->
+    <A href="http://ad2.trafficgate.net/t/r/15/1953/218078_269257/" target="_blank"><IMG src="http://srv2.trafficgate.net/t/b/15/1953/218078_269257/" border="0"></A>
+    <!-- /TG-Affiliate Banner Space -->
+EOS
+
+    banners.push <<EOS
+    <!-- TG-Affiliate Banner Space -->
+    <A href="http://ad2.trafficgate.net/t/r/31/4055/218078_269257/" target="_blank"><IMG src="http://srv2.trafficgate.net/t/b/31/4055/218078_269257/" border="0"></A>
+    <!-- /TG-Affiliate Banner Space -->
+EOS
+
+    banners.push <<EOS
+    <!-- TG-Affiliate Banner Space -->
+    <A href="http://ad2.trafficgate.net/t/r/7/3585/218078_269257/" target="_blank"><IMG src="http://srv2.trafficgate.net/t/b/7/3585/218078_269257/" border="0"></A>
+    <!-- /TG-Affiliate Banner Space -->
+EOS
+
+    banners.push <<EOS
+    <iframe frameborder="0" allowtransparency="true" height="125" width="125" marginheight="0" scrolling="no" src="http://ad.jp.ap.valuecommerce.com/servlet/htmlbanner?sid=2742880&pid=879737810" marginwidth="0"><script language="javascript" src="http://ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=2742880&pid=879737810"></script><noscript><a href="http://ck.jp.ap.valuecommerce.com/servlet/referral?sid=2742880&pid=879737810" target="_blank" ><img src="http://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=2742880&pid=879737810" height="125" width="125" border="0"></a></noscript></iframe>
+EOS
+
+    banners.push <<EOS
+    <iframe frameborder="0" allowtransparency="true" height="125" width="125" marginheight="0" scrolling="no" src="http://ad.jp.ap.valuecommerce.com/servlet/htmlbanner?sid=2742880&pid=879737822" marginwidth="0"><script language="javascript" src="http://ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=2742880&pid=879737822"></script><noscript><a href="http://ck.jp.ap.valuecommerce.com/servlet/referral?sid=2742880&pid=879737822" target="_blank" ><img src="http://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=2742880&pid=879737822" height="125" width="125" border="0"></a></noscript></iframe>
+EOS
+
+    banners.push <<EOS
+    <iframe frameborder="0" allowtransparency="true" height="125" width="125" marginheight="0" scrolling="no" src="http://ad.jp.ap.valuecommerce.com/servlet/htmlbanner?sid=2742880&pid=879737843" marginwidth="0"><script language="javascript" src="http://ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=2742880&pid=879737843"></script><noscript><a href="http://ck.jp.ap.valuecommerce.com/servlet/referral?sid=2742880&pid=879737843" target="_blank" ><img src="http://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=2742880&pid=879737843" height="125" width="125" border="0"></a></noscript></iframe>
+EOS
+
+    return banners.at(rand(banners.size))
+  end
+
+  def random_long_banner
+    banners = []
+    banners.push <<EOS
+    <!-- TG-Affiliate Banner Space -->
+    <A href="http://ad2.trafficgate.net/t/r/22/4669/218078_269257/" target="_blank"><IMG src="http://srv2.trafficgate.net/t/b/22/4669/218078_269257/" border="0"></A>
+    <!-- /TG-Affiliate Banner Space -->
+EOS
+
+    banners.push <<EOS
+    <!-- TG-Affiliate Banner Space -->
+    <A href="http://ad2.trafficgate.net/t/r/9/4309/218078_269257/" target="_blank"><IMG src="http://srv2.trafficgate.net/t/b/9/4309/218078_269257/" border="0"></A>
+    <!-- /TG-Affiliate Banner Space -->
+EOS
+
+    banners.push <<EOS
+    <!-- TG-Affiliate Banner Space -->
+    <A href="http://ad2.trafficgate.net/t/r/33/4055/218078_269257/" target="_blank"><IMG src="http://srv2.trafficgate.net/t/b/33/4055/218078_269257/" border="0"></A>
+    <!-- /TG-Affiliate Banner Space -->
+EOS
+
+    banners.push <<EOS
+    <!-- TG-Affiliate Banner Space -->
+    <A href="http://ad2.trafficgate.net/t/r/43/4055/218078_269257/" target="_blank"><IMG src="http://srv2.trafficgate.net/t/b/43/4055/218078_269257/" border="0"></A>
+    <!-- /TG-Affiliate Banner Space -->                
+EOS
+    banners.push <<EOS
+    <iframe frameborder="0" allowtransparency="true" height="600" width="120" marginheight="0" scrolling="no" src="http://ad.jp.ap.valuecommerce.com/servlet/htmlbanner?sid=2742880&pid=879737819" marginwidth="0"><script language="javascript" src="http://ad.jp.ap.valuecommerce.com/servlet/jsbanner?sid=2742880&pid=879737819"></script><noscript><a href="http://ck.jp.ap.valuecommerce.com/servlet/referral?sid=2742880&pid=879737819" target="_blank" ><img src="http://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=2742880&pid=879737819" height="600" width="120" border="0"></a></noscript></iframe>
+EOS
+
+    return banners.at(rand(banners.size))
+  end
+end

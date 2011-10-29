@@ -1,0 +1,18 @@
+<div id="sidebar">
+  <!--
+  <div id="sidebar_search">
+    <h3>商品を絞り込む</h3>
+    <form action="/item_stream" method="GET"> 
+      <input type="hidden" name="count" value="1" />
+      <input type="text" name="search_word" >
+      <input type="submit" value="検索する">
+    </form>
+    -->
+
+  <%= render 'shared/google_search' %>
+    <!-- Rakuten Widget FROM HERE --><script type="text/javascript">rakuten_design="slide";rakuten_affiliateId="0ae3d0c1.57c4d431.0ae3d0c2.3047f448";rakuten_items="ctsmatch";rakuten_genreId=0;rakuten_size="148x300";rakuten_target="_blank";rakuten_theme="gray";rakuten_border="off";rakuten_auto_mode="off";rakuten_genre_title="off";rakuten_recommend="on";rakuten_ver="20100708";</script><script type="text/javascript" src="http://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js"></script><!-- Rakuten Widget TO HERE -->
+  <%= render 'shared/ranking' %>
+
+  <div class="sidebar_afl">
+  </div>
+</div>

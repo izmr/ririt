@@ -1,0 +1,31 @@
+xml.instruct!
+xml.urlset(:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9") do
+  xml.url do
+    xml.loc(url_for(:controller => 'item_stream', :action => 'index', :only_path => false))
+    xml.lastmod w3c_date(@item_stream.first.updated_at)
+    xml.changefreq "hourly"
+  end
+  xml.url do
+    xml.loc(url_for(:controller => 'ranking', :action => 'index', :only_path => false))
+    xml.lastmod w3c_date(@item_stream.first.updated_at)
+    xml.changefreq "hourly"
+  end
+  @item_stream.each do |item|
+    item = item.rakuten_item
+    item_code_array = item.item_code.split(':')
+    xml.url do
+      xml.loc(url_for(:controller => 'rakuten_item', :action => 'index', :item_code_head =>  item_code_array[0],:item_code_foot => item_code_array[1] ,:only_path => false))
+      xml.lastmod w3c_date(item.updated_at)
+      xml.changefreq "hourly"
+    end
+  end
+
+  @twitter_users.each do |twitter_user|
+    xml.url do
+      xml.loc(url_for(:controller => 'twitter_user', :action => 'index', :username => twitter_user.username ,:only_path => false))
+      xml.lastmod w3c_date(twitter_user.updated_at)
+      xml.changefreq "hourly"
+    end
+  end
+
+end

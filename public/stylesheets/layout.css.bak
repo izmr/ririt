@@ -1,0 +1,124 @@
+body{
+  font-family: メイリオ, Arial, 'MS UI Gothic', sans-serif;
+  font-size: 100%;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  height: auto;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+#body #wrapper{
+  text-align: left;
+  width: 820px;
+  margin: 1em auto 0;
+}
+
+#header{
+  margin: 0 auto 0 auto;
+  height: auto;
+}
+
+#body #container{
+  width: 100%;
+  position: relative;
+  padding: 0 0 0 0;
+}
+
+#body #contents{
+  border: 3px solid #33CCFF;
+  float: left;
+  width: 800px;
+  padding: 2em 2em;
+}
+
+.item_image{
+  float: left;
+  height: 100%;
+  text-align: center;
+}
+
+h2.ranking_title{
+  text-align: center;
+}
+
+.item_image a img{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.ranking_item.item_side{
+  width: 20%;
+  height: auto;
+  overflow: hidden;
+}
+
+.ranking_item .item_info{
+  width: 19%;
+}
+
+#change_ranking_date{
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 0.3em;
+}
+#change_ranking_date #prev_date{
+  float:left;
+}
+
+#change_ranking_date #next_date{
+  float: right;
+}
+
+.item_contents{
+  width: 80%;
+  float: right;
+}
+
+.item_tweets{
+  font-size: 0.8em;
+  color: gray;
+  float: right;
+  width: 79%;
+  height: auto;
+  border: 1px dashed blue;
+}
+
+
+.ranking{
+  width: 770px;
+}
+
+.ranking_line{
+  clear: left;
+}
+
+.ranking_item{
+  width: 760px;
+  height: auto;
+  overflow: hidden;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-right: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid green;
+}
+
+#body #footer{
+  clear: both;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+
+#body #globalnavi{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-bottom: 10px;
+}

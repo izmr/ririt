@@ -1,0 +1,75 @@
+.rakuten_item_retweet_form{
+  margin-top: 0.1em;
+  height: auto;
+  width: 630px;
+  text-align: center;
+  float: right;
+}
+
+.rakuten_item_image{
+  float: left;
+}
+
+.rakuten_item_container{
+  float: right;
+}
+.rakuten_item_contents{
+  width: 700px;
+  float: left;
+}
+
+.rakuten_item_information{
+  font-size: 0.6em;
+  width:  auto;
+  text-align: left;
+}
+
+.rakuten_item_information span{
+  color: #FF0000;
+  margin: 0 0 0 10px;
+  font-size: 2em;
+}
+
+.tweet_infomation{
+  font-size: 0.9em;
+  float: right;
+}
+
+.tweet_image {
+  float: left;
+  margin: 0px;
+  padding: 10px 20px 10px 10px;
+  vertical-align: middle;
+  width: 48px;
+}
+
+.tweet_container{
+  clear: both;
+  margin: 0px;
+  margin-top: 1em;
+  padding: 15px, 45px, 15px, 15px;
+}
+
+.tweet_text{
+  border: 3px solid #CCC;
+  border-bottom-left-radius: 4px 4px;
+  border-bottom-right-radius: 4px 4px;
+  border-top-left-radius: 4px 4px;
+  border-top-right-radius: 4px 4px;
+  margin: auto 0px 4px 75px;
+  min-height: 30px;
+  padding: 10px;
+  vertical-align: middle;
+  font-weight: bold;
+  font-color: #333333;
+  text-align:left;
+  word-wrap: break-word;
+}
+
+.other_day{
+  background-color: #FFF;
+}
+
+.today{
+  background-color: #DDF;
+}

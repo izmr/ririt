@@ -1,0 +1,47 @@
+.sidebar_ranking_item_price a:link {
+  color: #EE1111;
+}
+.sidebar_ranking_item_price a:visited {
+  color: #EE1111;
+}
+
+.pager {
+  width: 650px;
+  text-align: center;
+  height: auto;
+  overflow: hidden;
+}
+
+.pager .next {
+  float: right;
+}
+
+.pager .prev{
+  float: left;
+}
+
+#sidebar_search h3{
+  font-size: 1em;
+}
+
+#sidebar_search{
+  margin-bottom: 10px;
+}
+
+#sidebar_ranking{
+  font-size: 0.7em;
+}
+
+#sidebar_ranking_item{
+  width:100px;
+  height: auto;
+  overflow: hidden;
+}
+
+#sidebar_ranking_item_img{
+  float: left;
+}
+
+#sidebar_ranking_item_text{
+  float: right;
+}

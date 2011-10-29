@@ -1,0 +1,58 @@
+<div style="width:auto; float: right;">
+  <a href="http://b.hatena.ne.jp/entry/<%= request.host + request.path.chomp('/') %>">
+    <img src="http://b.hatena.ne.jp/entry/image/<%= request.url.chomp('/') %>"
+    alt="はてなブックマーク - <%= request.url.chomp('/') %>" title="はてなブックマーク - <%= request.url %>"></a>
+</div>
+
+<div align="center"><%= link_to('【Twitter人気商品ランキング】', url_for(:controller => 'ranking')) %> | 【最新の商品情報】</div>
+</ hr>
+<%= render 'shared/item_stream_count' %>
+<%= render 'shared/pager' %>
+
+<div class="ranking">
+  <% number = 0 %>
+  <% @item_stream.each do |item| %>
+    <% item = item.rakuten_item %>
+    <div class="ranking_item">
+      <div class="item_body">
+        <div class="item_image">
+          <%= link_to(image_tag(item.big_image_url.sub('128x128', '256x256'), :alt => item.item_name), item.affiliate_url) %>
+        </div>
+        <div class="item_contents">
+          <%= link_to(item.item_name, item.affiliate_url) %><br/ >
+        </div>
+        <br />
+        <div class="item_tweets">
+          <% tweet = item.tweets.first %>
+          <div class="tweet_container">
+            <div class="tweet_image">
+              <%= link_to(image_tag(tweet.twitter_user.profile_image_url, :width => 50, :alt => tweet.twitter_user.username), url_for(:controller => 'twitter_user', :username => tweet.twitter_user.username)) %>
+            </div>
+            <div class="tweet_text <%= tweet_text_class(tweet.tweet_datetime) %>"><%= raw twitter_format(tweet.text) %></div>
+            <div class="tweet_infomation">Twitter ID: <%= link_to(tweet.twitter_user.username, url_for(:controller => 'twitter_user', :username => tweet.twitter_user.username)) %>:
+              <%= link_to(tweet.tweet_datetime, url_for('http://twitter.com/' + tweet.twitter_user.username + '/status/' + tweet.tweet_id.to_s)) %></div>
+            <br />
+            <div style="text-align: left; margin-top:0.5em;">
+              <% item.tweets.each do |tweet| %>
+                <%= link_to (image_tag(tweet.twitter_user.profile_image_url, :width => 20, :alt => tweet.twitter_user.username + ':' + tweet.text, :title => tweet.twitter_user.username + ':' + tweet.text), url_for(:controller => 'twitter_user', :username => tweet.twitter_user.username)) %>
+              <% end %>
+              <% item_code_array = item.item_code.split(':') %>
+              <%= link_to "(#{item.tweets.count} Tweets)",  url_for(:controller => 'rakuten_item', :item_code_head => item_code_array[0], :item_code_foot => item_code_array[1]) %>
+              <br />
+              <div align="center"><font size="5">
+                  <%= link_to "[全ツイートを見る]",  url_for(:controller => 'rakuten_item', :item_code_head => item_code_array[0], :item_code_foot => item_code_array[1]) %>
+              </font></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <br />
+  <% end %>
+</div>
+<%= render 'shared/pager' %>
+<div align="center">
+  <%= raw(random_landscape_banner) %>
+</div>

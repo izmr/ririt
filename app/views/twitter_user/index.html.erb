@@ -1,0 +1,55 @@
+<div class="twitter_user_container">
+  <% unless(@twitter_user.nil?) %>
+    <div class="twitter_user_information">
+      <div class="twitter_user_photo">
+        <%= link_to( image_tag(@twitter_user.profile_image_url, :alt => @twitter_user.username, :title => @twitter_user.username, :width => 50), 'http://twitter.com/' + @twitter_user.username ) %>
+      </div>
+      <div class="twitter_user_information_body">
+        Username: <%= link_to( @twitter_user.username, 'http://twitter.com/' + @twitter_user.username ) %>
+        <br />
+        Tweets: <%= @twitter_user.tweets.count %>
+      </div>
+    </div>
+
+    <div class="twitter_user_items">
+      <h2>
+        <%= link_to( @twitter_user.username, 'http://twitter.com/' + @twitter_user.username ) %>さんのツイート一覧
+      </h2>
+      <% @twitter_user.tweets.limit(100).each do |tweet| %>
+        <div class="twitter_user_item">
+          <div class="twitter_user_item_image">
+            <%= link_to( image_tag(tweet.rakuten_item.image_url), tweet.rakuten_item.affiliate_url) %>
+          </div>
+          <div class="twitter_user_item_tweet">
+            <%= raw tweet.text %>
+          </div>
+          <div class="tweet_infomation">
+            <%= link_to(tweet.tweet_datetime, url_for('http://twitter.com/' + tweet.twitter_user.username + '/status/' + tweet.tweet_id.to_s)) %>
+          </div>
+          <br />
+          <div class="twitter_user_item_information">
+            <table border="0">
+              <tr>
+                <td width="60px">商品名：</td>
+                <td>
+                  <%= link_to tweet.rakuten_item.item_name, tweet.rakuten_item.affiliate_url %>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div style="text-align: left; margin-top:0.5em;">
+            <% tweet.rakuten_item.tweets.each do |item_tweet| %>
+              <%= link_to (image_tag(item_tweet.twitter_user.profile_image_url, :width => 20, :alt => item_tweet.twitter_user.username + ':' + item_tweet.text, :title => item_tweet.twitter_user.username + ':' + item_tweet.text), url_for(:controller => 'twitter_user', :username => item_tweet.twitter_user.username)) %>
+            <% end %>
+            <% item_code_array = tweet.rakuten_item.item_code.split(':') %>
+            <%= link_to "(#{tweet.rakuten_item.tweets.count} Tweets)",  url_for(:controller => 'rakuten_item', :item_code_head => item_code_array[0], :item_code_foot => item_code_array[1]) %>
+          </div>
+
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+   そのユーザは存在しません
+  <% end %>
+  <%= render 'shared/rakuten_item_ad' %>
+</div>

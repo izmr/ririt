@@ -1,0 +1,2 @@
+module RiritHelper
+end

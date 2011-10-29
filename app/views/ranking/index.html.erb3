@@ -1,0 +1,53 @@
+<div style="width:auto; float: right;">                                                               <a href="http://b.hatena.ne.jp/entry/<%= request.host + request.path.chop %>">
+     <img src="http://b.hatena.ne.jp/entry/image/<%= request.url %>"
+               alt="はてなブックマーク - <%= request.url %>" title="はてなブックマーク - <%= request.url %>"></a>
+</div>
+
+<div align="center">【本日の人気商品ランキング】 | <%= link_to('【最新の商品情報】', url_for(:controller => 'item_stream')) %></div>
+
+<div class="ranking">
+  <div id="change_ranking_date">
+    <div id="prev_date"><%= link_to('昨日のランキングを見る', url_for(:controller => 'ranking', :date => (@date - 1).to_s)) %></div>
+    <% if(@date < Date.today) %>
+      <div id="next_date"><%= link_to('明日のランキングを見る', url_for(:controller => 'ranking', :date => (@date + 1).to_s)) %></div>
+    <% end %>
+  </div>
+  <h2 class="ranking_title"><%= @date.year %>年<%= @date.month %>月<%= @date.day %>日のランキング</h2>
+  <% number = 0 %>
+  <% @ranking.each do |item| %>
+    <div class="ranking_item">
+      <div class="item_body">
+        <div class="item_image">
+          <h3>第<%= (number+=1) %>位</h3>
+          <% item.big_image_url.sub!('128x128', '256x256') %>
+          <%= link_to(image_tag(item.big_image_url, :alt => item.item_name), item.affiliate_url) %>
+        </div>
+        <div class="item_contents">
+          <%= link_to(item.item_name, item.affiliate_url) %><br/ >
+        </div>
+        <div class="item_tweets">
+          <% item_code_array = item.item_code.split(':') %>
+          <div align="right"><%= link_to "Tweets count: #{item.tweets.count}", url_for(:controller => 'rakuten_item', :item_code_head => item_code_array[0], :item_code_foot => item_code_array[1]) %></div>
+          <table>
+            <% count = 0 %>
+            <% item.tweets.each do |tweet| %>
+              <% break if(count+=1) > 5 %>
+              <tr>
+                <td><%= link_to(image_tag(tweet.twitter_user.profile_image_url, :width => 35, :alt => tweet.twitter_user.username), url_for('http://twitter.com/' + tweet.twitter_user.username)) %></td>
+                <td><%= tweet.text %></td>
+              </tr>
+            <% end %>
+          </table>
+          <%= link_to '全てのツイートを見る', url_for(:controller => 'rakuten_item', :action => 'index', :item_code_head => item_code_array[0], :item_code_foot => item_code_array[1]) %>
+        </div>
+      </div>
+      <div class="item_side">
+        <div class="item_info">
+        </div>
+      </div>
+    </div>
+
+
+    <br />
+  <% end %>
+</div>

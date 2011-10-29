@@ -1,0 +1,41 @@
+<!--
+<div align="right">
+  <a href="http://b.hatena.ne.jp/entry/<%= request.host + request.path.chop %>">
+     <img src="http://b.hatena.ne.jp/entry/image/<%= request.url %>"
+               alt="はてなブックマーク - <%= request.url %>" title="はてなブックマーク - <%= request.url %>"></a>
+           </div>
+           -->
+<!-- rakuten_ad_target_begin -->
+<div class="ranking_item">
+  <div class="rakuten_item_image">
+    <%= link_to(image_tag(@rakuten_item.big_image_url.sub('128x128', '256x256')), @rakuten_item.affiliate_url, :target => ["_blank"]) %>
+  </div>
+  <div class="rakuten_item_information">
+    <span><%= link_to(@rakuten_item.item_name, @rakuten_item.affiliate_url) %></span>
+    <br />
+    <span>価格：<%= @rakuten_item.item_price.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\1,').reverse %>円</span>
+    <br />
+    <span><%= render 'shared/facebook_like' %></span>
+    <span><%= render 'shared/tweet_button' %></span>
+    <br />
+    <div align="right"><%= render 'shared/rakuten_genre_search' %></div>
+  </div>
+</div>
+
+<% @rakuten_item.tweets.each do |tweet| %>
+  <div class="tweet_container">
+    <div class="tweet_image">
+      <%= link_to(image_tag(tweet.twitter_user.profile_image_url, :width => 50, :alt => tweet.twitter_user.username), url_for(:controller => 'twitter_user', :username => tweet.twitter_user.username), :alt => tweet.twitter_user.username) %>
+    </div>
+    <div class="tweet_text <%= tweet_text_class(tweet.tweet_datetime) %>"><%= raw twitter_format(tweet.text) %></div>
+    <div class="tweet_infomation">Twitter ID: <%= link_to(tweet.twitter_user.username, url_for('http://twitter.com/' + tweet.twitter_user.username)) %>: 
+      <%= link_to(tweet.tweet_datetime, url_for('http://twitter.com/' + tweet.twitter_user.username + '/status/' + tweet.tweet_id.to_s)) %></div>
+  </div>
+<% end %>
+
+<%= render 'shared/rakuten_item_ad' %>
+<div align="center">
+  <%= raw(random_landscape_banner) %>
+</div>
+<div align="center"><font size="5"><a href="http://ririt.marimofire.com">RiriT トップに戻る</a></font></div>
+<!-- rakuten_ad_target_end -->

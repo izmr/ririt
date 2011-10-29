@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RiriT Daily Ranking - Twitter人気商品ランキング<%= date_title @date %></title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+  <%= render 'shared/google_analytics' %>
+</head>
+<body id="body">
+  <div id="wrapper">
+    <div id="header" align="center">
+      <h1>
+        <%= render '/shared/logo' %>
+      </h1>
+      <%= render 'shared/caution' %>
+    </div>
+    <div id="container" align="center">
+      <div id="contents">
+        <%= yield %>
+      </div>
+      <%= render 'shared/item_stream_sidebar' %>
+      <%= render 'shared/footer' %>
+      <div id="globalnavi"> </div>
+    </div>
+  </div>
+
+</body>
+</html>

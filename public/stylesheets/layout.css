@@ -1,0 +1,156 @@
+img {
+  border-style:none;
+}
+
+body{
+  font-family: メイリオ, Arial, 'MS UI Gothic', sans-serif;
+  font-size: 100%;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  height: auto;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+h3{
+  font-size: 1.5em;
+}
+
+#body #wrapper{
+  text-align: center;
+  width: 880px;
+  /*margin: 1em auto 0;*/
+  margin: 0 auto 0 auto;
+}
+
+#header{
+  margin: 0 auto 0 auto;
+  height: auto;
+}
+
+#body #container{
+  width: 100%;
+  margin: 0 auto 0 auto;
+}
+
+#body #contents{
+  border-bottom-left-radius: 4px 4px;
+  border-bottom-right-radius: 4px 4px;
+  border-top-left-radius: 4px 4px;
+  border-top-right-radius: 4px 4px;
+
+  border: 3px solid #FFB2B2;
+  float: right;
+  width: 650px;
+  padding: 2em 2em;
+}
+
+#body #sidebar{
+  width: 150px;
+  float: left;
+  margin: 0;
+  padding: 10px 2px 2px 2px;
+  height: auto;
+  /*border: 3px solid #33CCFF;*/
+}
+
+#sidebar .sidebar_info{
+  padding 5px, 5px, 5px, 5px;
+}
+
+.ranking_item{
+  width: 650px;
+  height: auto;
+  overflow: hidden;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #FFF0F0;
+}
+
+.ranking_item .item_body{
+  float: right;
+  height: auto;
+  width: 100%;
+}
+
+.ranking_item.item_side{
+  width: 20%;
+  height: auto;
+  width: 19%;
+}
+
+.item_image{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h2.ranking_title{
+  text-align: center;
+}
+
+.item_image a img{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+
+
+.ranking_item .item_info{
+  /*padding-left: 1em;*/
+}
+
+#change_ranking_date{
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 0.3em;
+}
+#change_ranking_date #prev_date{
+  float:left;
+}
+
+#change_ranking_date #next_date{
+  float: right;
+}
+
+.item_contents{
+  font-size: 0.9em;
+}
+
+.item_tweets{
+  /*font-size: 0.8em;
+  color: gray;
+  float: right;*/
+  height: auto;
+  margin-top: 1em;
+  /*border: 1px dashed blue;*/
+}
+
+
+.ranking{
+  width: 660px;
+}
+
+
+
+#body #footer{
+  clear: both;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+
+#body #globalnavi{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-bottom: 10px;
+}

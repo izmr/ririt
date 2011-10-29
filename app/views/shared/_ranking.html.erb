@@ -1,0 +1,22 @@
+<% date = (DateTime.now - 4.hour).to_date %>
+<div id="sidebar_ranking">
+  <%= link_to 'Twitter人気商品ランキング', url_for(:controller => 'ranking') %><br >
+  <%= date.year %>年<%= date.month %>月<%= date.day %>
+  <br />
+  <% count = 0 %>
+  <% Ranking.find(:all, :conditions => ['ranking_date = ?', date], :limit => 10, :order => 'rank').each do |ranking_item| %>
+    <div class="sidebar_ranking_item">
+      <%= count += 1 %>位(<%= link_to("#{ranking_item.count} Tweets", url_for(:controller => 'rakuten_item', :id => ranking_item.rakuten_item_id)) %>)
+      <div class="sidebar_ranking_item_img">
+        <%= link_to( image_tag(ranking_item.rakuten_item.big_image_url), ranking_item.rakuten_item.affiliate_url ) %>
+      </div>
+      <div class="sidebar_ranking_item_text">
+        <%= link_to( item_name_format(ranking_item.rakuten_item.item_name), ranking_item.rakuten_item.affiliate_url ) %>
+      </div>
+      <div class="sidebar_ranking_item_price">
+        <%= link_to( number_format(ranking_item.rakuten_item.item_price), ranking_item.rakuten_item.affiliate_url ) %>
+      </div>
+    </div>
+    <br />
+  <% end %>
+</div>

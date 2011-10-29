@@ -1,0 +1,11 @@
+<div class="pager">
+  <% if(@page.to_i >= 1)  %>
+    <div class="prev">
+      <%= link_to("前の#{@limit}件", url_for(:controller => 'item_stream',:count => @count, :page => @page.to_i - 1, :search_word => @search_word, :limit => @limit)) %>
+    </div>
+  <% end %>
+  <div class="next">
+    <%= link_to("次の#{@limit}件", url_for(:count => @count, :page => @page.to_i + 1, :search_word => @search_word, :limit => @limit)) %>
+  </div>
+</div>
+

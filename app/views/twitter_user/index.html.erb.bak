@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <td><%= @twitter_user.username %></td>
+    <td><%= @twitter_user.tweets.count %></td>
+  </tr>
+</table>
+</ hr>
+<table>
+  <tr>
+    <th>item_id</th>
+    <th>text</th>
+    <th>tweet date</th>
+  </tr>
+  <% @twitter_user.tweets.each do |tweet| %>
+    <tr>
+      <td><%= link_to(tweet.rakuten_item_id, url_for(:controller => 'rakuten_item', :id => tweet.rakuten_item_id)) %></td>
+      <td><%= tweet.text %></td>
+      <td><%= tweet.tweet_datetime %></td>
+    </tr>
+  <% end %>
+</table>
